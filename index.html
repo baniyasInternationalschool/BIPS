@@ -28,6 +28,15 @@
                         dark: '#1F2937',
                         light: '#F8FAFC'
                     },
+                    screens: {
+                        'xs': '475px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                        '3xl': '1920px'
+                    },
                     animation: {
                         'slide-up': 'slideUp 0.6s ease-out',
                         'slide-down': 'slideDown 0.6s ease-out',
@@ -365,6 +374,7 @@
             z-index: 1000;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 90vw;
         }
 
         .notification.show {
@@ -372,22 +382,178 @@
             opacity: 1;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
+        /* Emergency Number Highlight */
+        .emergency-number {
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 640px) {
+            .header-gradient {
+                padding: 12px 0;
+            }
+            
+            .nav-enhanced {
+                position: relative;
+                top: 0;
+            }
+            
+            .nav-enhanced .container {
+                padding: 0;
+            }
+            
+            .nav-enhanced ul {
+                flex-direction: column;
+                padding: 16px;
+                gap: 8px;
+            }
+            
             .nav-link {
-                padding: 12px 16px;
-                font-size: 16px;
+                padding: 16px 20px;
+                font-size: 18px;
                 border-radius: 12px;
-                margin: 4px;
+                margin: 0;
+                display: block;
+                text-align: center;
+                background: rgba(37, 99, 235, 0.05);
+                border: 1px solid rgba(37, 99, 235, 0.1);
+            }
+            
+            .dark .nav-link {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
             
             .card-enhanced {
                 border-radius: 16px;
                 margin: 16px 0;
+                padding: 24px !important;
             }
             
-            .header-gradient {
-                padding: 16px 0;
+            .glass-enhanced {
+                padding: 16px !important;
+                border-radius: 16px;
+            }
+            
+            .notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                transform: translateY(-100px);
+                font-size: 14px;
+                padding: 16px 20px;
+            }
+            
+            .notification.show {
+                transform: translateY(0);
+            }
+            
+            .emergency-number {
+                padding: 16px;
+                margin: 16px 0;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .nav-link {
+                padding: 14px 18px;
+                font-size: 16px;
+            }
+            
+            .card-enhanced {
+                border-radius: 20px;
+                margin: 20px 0;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 100%;
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+        }
+
+        @media (max-width: 475px) {
+            .header-gradient .container {
+                padding: 0 16px;
+            }
+            
+            .header-gradient h1 {
+                font-size: 24px !important;
+                line-height: 1.2;
+                margin-bottom: 8px;
+            }
+            
+            .header-gradient p {
+                font-size: 16px !important;
+            }
+            
+            .language-toggle {
+                width: 70px;
+                height: 36px;
+            }
+            
+            .language-toggle .toggle-slider {
+                width: 30px;
+                height: 30px;
+                font-size: 10px;
+            }
+            
+            .language-toggle.english .toggle-slider {
+                transform: translateX(34px);
+            }
+            
+            .w-20.h-20 {
+                width: 60px !important;
+                height: 60px !important;
+            }
+            
+            .text-3xl {
+                font-size: 20px !important;
+            }
+            
+            .text-6xl {
+                font-size: 32px !important;
+                line-height: 1.1;
+            }
+            
+            .text-2xl {
+                font-size: 18px !important;
+            }
+            
+            .text-5xl {
+                font-size: 28px !important;
+            }
+            
+            .text-4xl {
+                font-size: 24px !important;
+            }
+            
+            .grid.md\\:grid-cols-2 {
+                gap: 24px;
+            }
+            
+            .grid.md\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .space-y-10 > * + * {
+                margin-top: 24px;
+            }
+            
+            .space-y-8 > * + * {
+                margin-top: 20px;
+            }
+            
+            .space-y-6 > * + * {
+                margin-top: 16px;
             }
         }
 
@@ -402,6 +568,12 @@
                 box-shadow: none !important;
                 border: 1px solid #ddd !important;
                 page-break-inside: avoid;
+            }
+            
+            .header-gradient {
+                background: #2563EB !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
             }
         }
 
@@ -424,6 +596,50 @@
             transform: translateY(-4px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
+
+        /* Large Screen Optimizations */
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 1600px;
+            }
+            
+            .text-6xl {
+                font-size: 4rem;
+            }
+            
+            .text-5xl {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Mobile Menu Enhancement */
+        #mainNav.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            #mainNav {
+                display: none;
+            }
+            
+            #mainNav:not(.hidden) {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                z-index: 999;
+                overflow-y: auto;
+                padding-top: 80px;
+            }
+            
+            .dark #mainNav:not(.hidden) {
+                background: rgba(31, 41, 55, 0.98);
+            }
+        }
     </style>
 </head>
 <body class="bg-light dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -443,36 +659,36 @@
 
     <!-- Header -->
     <header class="header-gradient text-white shadow-2xl sticky top-0 z-40 backdrop-blur-lg">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-6 space-x-reverse">
-                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center animate-bounce-subtle">
-                        <i class="fas fa-shield-alt text-4xl text-white drop-shadow-lg"></i>
+        <div class="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center space-x-4 sm:space-x-6 space-x-reverse">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center animate-bounce-subtle overflow-hidden">
+                        <img src="https://www2.0zz0.com/2025/07/27/13/812615401.jpg" alt="School Logo" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-white/30 shadow-2xl">
                     </div>
-                    <div>
-                        <h1 class="text-3xl font-bold text-white mb-2" 
+                    <div class="min-w-0 flex-1">
+                        <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2 leading-tight" 
                             data-ar="السلامة والصحة المهنية" 
                             data-en="Safety & Occupational Health">السلامة والصحة المهنية</h1>
-                        <p class="text-blue-100 text-lg font-medium" 
+                        <p class="text-blue-100 text-sm sm:text-lg font-medium leading-tight" 
                            data-ar="مدرسة بني ياس الدولية - 2025/2026" 
                            data-en="Bani Yas International School - 2025/2026">مدرسة بني ياس الدولية - 2025/2026</p>
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-6 space-x-reverse">
+                <div class="flex items-center space-x-3 sm:space-x-6 space-x-reverse">
                     <!-- Language Toggle -->
                     <div class="language-toggle no-print" id="languageToggle">
                         <div class="toggle-slider" id="toggleSlider">AR</div>
                     </div>
 
                     <!-- Dark Mode Toggle -->
-                    <button id="darkModeToggle" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 no-print icon-button">
-                        <i class="fas fa-moon text-white text-lg"></i>
+                    <button id="darkModeToggle" class="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 no-print icon-button">
+                        <i class="fas fa-moon text-white text-sm sm:text-lg"></i>
                     </button>
 
                     <!-- Mobile Menu Toggle -->
-                    <button id="mobileMenuToggle" class="md:hidden w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 icon-button">
-                        <i class="fas fa-bars text-white text-lg"></i>
+                    <button id="mobileMenuToggle" class="md:hidden w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 icon-button">
+                        <i class="fas fa-bars text-white text-sm sm:text-lg"></i>
                     </button>
                 </div>
             </div>
@@ -480,36 +696,40 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="nav-enhanced sticky top-28 z-30" id="mainNav">
-        <div class="container mx-auto px-6">
-            <ul class="flex flex-wrap justify-center space-x-2 space-x-reverse py-6 text-base font-medium">
-                <li><a href="#thanks" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="رسالة شكر" data-en="Thank You">رسالة شكر</a></li>
-                <li><a href="#intro" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="نبذة تعريفية" data-en="Introduction">نبذة تعريفية</a></li>
-                <li><a href="#objectives" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الأهداف" data-en="Objectives">الأهداف</a></li>
-                <li><a href="#team" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الفريق" data-en="Team">الفريق</a></li>
-                <li><a href="#policies" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="السياسات" data-en="Policies">السياسات</a></li>
-                <li><a href="#emergency" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الطوارئ" data-en="Emergency">الطوارئ</a></li>
-                <li><a href="#training" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="التدريب" data-en="Training">التدريب</a></li>
-                <li><a href="#activities" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الأنشطة" data-en="Activities">الأنشطة</a></li>
-                <li><a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="التواصل" data-en="Contact">التواصل</a></li>
+    <nav class="nav-enhanced sticky top-20 sm:top-28 z-30 hidden md:block" id="mainNav">
+        <div class="container mx-auto px-4 sm:px-6">
+            <ul class="flex flex-wrap justify-center space-x-1 sm:space-x-2 space-x-reverse py-4 sm:py-6 text-sm sm:text-base font-medium">
+                <li><a href="#thanks" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="رسالة شكر" data-en="Thank You">رسالة شكر</a></li>
+                <li><a href="#intro" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="نبذة تعريفية" data-en="Introduction">نبذة تعريفية</a></li>
+                <li><a href="#objectives" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الأهداف" data-en="Objectives">الأهداف</a></li>
+                <li><a href="#team" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الفريق" data-en="Team">الفريق</a></li>
+                <li><a href="#policies" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="السياسات" data-en="Policies">السياسات</a></li>
+                <li><a href="#emergency" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الطوارئ" data-en="Emergency">الطوارئ</a></li>
+                <li><a href="#training" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="التدريب" data-en="Training">التدريب</a></li>
+                <li><a href="#activities" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="الأنشطة" data-en="Activities">الأنشطة</a></li>
+                <li><a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary transition-all duration-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700" data-ar="التواصل" data-en="Contact">التواصل</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
+    <main class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <!-- Hero Section -->
-        <section class="text-center mb-20 fade-in-content">
-            <div class="glass-enhanced p-16 mb-12 relative overflow-hidden">
+        <section class="text-center mb-12 sm:mb-20 fade-in-content">
+            <div class="glass-enhanced p-8 sm:p-16 mb-8 sm:mb-12 relative overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-info/10 animate-gradient"></div>
                 <div class="relative z-10">
-                    <div class="w-28 h-28 mx-auto mb-8 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center animate-pulse-slow shadow-2xl">
-                        <i class="fas fa-shield-alt text-5xl text-white"></i>
+                    <!-- School Logo -->
+                    <div class="mb-6 sm:mb-8">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 rounded-full flex items-center justify-center animate-pulse-slow shadow-2xl relative overflow-hidden">
+                            <img src="https://www2.0zz0.com/2025/07/27/13/812615401.jpg" alt="School Logo" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-white/20 shadow-2xl">
+                        </div>
                     </div>
-                    <h2 class="text-6xl font-bold gradient-text-enhanced mb-8" 
+                    
+                    <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold gradient-text-enhanced mb-6 sm:mb-8 leading-tight" 
                         data-ar="مرحباً بكم في موقع السلامة والصحة المهنية" 
                         data-en="Welcome to Safety & Occupational Health Portal">مرحباً بكم في موقع السلامة والصحة المهنية</h2>
-                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed" 
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed" 
                        data-ar="نحو بيئة تعليمية آمنة ومحمية للجميع - نلتزم بأعلى معايير السلامة لضمان رفاهية طلابنا وموظفينا" 
                        data-en="Towards a safe and protected educational environment for all - We are committed to the highest safety standards to ensure the well-being of our students and staff">نحو بيئة تعليمية آمنة ومحمية للجميع - نلتزم بأعلى معايير السلامة لضمان رفاهية طلابنا وموظفينا</p>
                 </div>
@@ -517,90 +737,90 @@
         </section>
 
         <!-- Thank You Section -->
-        <section id="thanks" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover relative overflow-hidden">
+        <section id="thanks" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-warning/20 to-transparent rounded-full -translate-y-20 translate-x-20"></div>
                 <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-accent/20 to-transparent rounded-full translate-y-16 -translate-x-16"></div>
                 
                 <div class="relative z-10">
-                    <div class="text-center mb-12">
-                        <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-warning to-orange-500 rounded-full mb-8 shadow-2xl animate-bounce-subtle">
-                            <i class="fas fa-heart text-white text-4xl"></i>
+                    <div class="text-center mb-8 sm:mb-12">
+                        <div class="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-warning to-orange-500 rounded-full mb-6 sm:mb-8 shadow-2xl animate-bounce-subtle">
+                            <i class="fas fa-heart text-white text-3xl sm:text-4xl"></i>
                         </div>
-                        <h3 class="text-5xl font-bold gradient-text-enhanced mb-6" 
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-4 sm:mb-6" 
                             data-ar="رسالة شكر وتقدير" 
                             data-en="Message of Gratitude and Appreciation">رسالة شكر وتقدير</h3>
-                        <div class="w-40 h-2 bg-gradient-to-r from-warning to-orange-500 mx-auto rounded-full shadow-lg"></div>
+                        <div class="w-32 sm:w-40 h-2 bg-gradient-to-r from-warning to-orange-500 mx-auto rounded-full shadow-lg"></div>
                     </div>
                     
                     <div class="max-w-6xl mx-auto">
-                        <div class="glass-enhanced p-12 interactive-hover">
-                            <div class="text-center mb-10">
-                                <h4 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-8">
-                                    <i class="fas fa-university text-primary ml-4 text-3xl"></i>
+                        <div class="glass-enhanced p-6 sm:p-12 interactive-hover">
+                            <div class="text-center mb-8 sm:mb-10">
+                                <h4 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-6 sm:mb-8">
+                                    <i class="fas fa-university text-primary ml-3 sm:ml-4 text-2xl sm:text-3xl"></i>
                                     <span data-ar="إلى إدارة مدرسة بني ياس الدولية الموقرة" 
                                           data-en="To the Respected Administration of Bani Yas International School">إلى إدارة مدرسة بني ياس الدولية الموقرة</span>
                                 </h4>
-                                <div class="w-32 h-2 bg-primary mx-auto rounded-full shadow-md"></div>
+                                <div class="w-24 sm:w-32 h-2 bg-primary mx-auto rounded-full shadow-md"></div>
                             </div>
                             
-                            <div class="prose prose-xl max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
-                                <p class="text-center mb-10 font-medium text-2xl text-gray-800 dark:text-gray-200 glass-enhanced p-8 border-l-4 border-primary" 
+                            <div class="prose prose-lg sm:prose-xl max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <p class="text-center mb-8 sm:mb-10 font-medium text-xl sm:text-2xl text-gray-800 dark:text-gray-200 glass-enhanced p-6 sm:p-8 border-l-4 border-primary" 
                                    data-ar="نتقدم بأسمى آيات الشكر والتقدير والامتنان لإدارة مدرسة بني ياس الدولية الموقرة على دعمها المتواصل والمتميز لقسم السلامة والصحة المهنية." 
                                    data-en="We extend our highest gratitude and appreciation to the respected administration of Bani Yas International School for their continuous and outstanding support for the Safety and Occupational Health Department.">نتقدم بأسمى آيات الشكر والتقدير والامتنان لإدارة مدرسة بني ياس الدولية الموقرة على دعمها المتواصل والمتميز لقسم السلامة والصحة المهنية.</p>
                                 
-                                <div class="grid md:grid-cols-2 gap-10 mb-12">
-                                    <div class="glass-enhanced p-10 border-l-4 border-blue-500 interactive-hover">
-                                        <h5 class="text-3xl font-semibold text-blue-800 dark:text-blue-300 mb-6 flex items-center">
-                                            <i class="fas fa-hands-helping ml-4 text-blue-600 text-2xl"></i>
+                                <div class="grid md:grid-cols-2 gap-6 sm:gap-10 mb-8 sm:mb-12">
+                                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-blue-500 interactive-hover">
+                                        <h5 class="text-2xl sm:text-3xl font-semibold text-blue-800 dark:text-blue-300 mb-4 sm:mb-6 flex items-center">
+                                            <i class="fas fa-hands-helping ml-3 sm:ml-4 text-blue-600 text-xl sm:text-2xl"></i>
                                             <span data-ar="الدعم المؤسسي" data-en="Institutional Support">الدعم المؤسسي</span>
                                         </h5>
-                                        <p class="text-lg leading-relaxed" 
+                                        <p class="text-base sm:text-lg leading-relaxed" 
                                            data-ar="نشكر الإدارة على توفير كافة الإمكانيات والموارد اللازمة لتطبيق أعلى معايير السلامة، من معدات متطورة وتدريب مستمر وميزانيات كافية لتحقيق أهدافنا في حماية المجتمع المدرسي." 
                                            data-en="We thank the administration for providing all the necessary capabilities and resources to implement the highest safety standards, from advanced equipment and continuous training to adequate budgets to achieve our goals in protecting the school community.">نشكر الإدارة على توفير كافة الإمكانيات والموارد اللازمة لتطبيق أعلى معايير السلامة، من معدات متطورة وتدريب مستمر وميزانيات كافية لتحقيق أهدافنا في حماية المجتمع المدرسي.</p>
                                     </div>
                                     
-                                    <div class="glass-enhanced p-10 border-l-4 border-green-500 interactive-hover">
-                                        <h5 class="text-3xl font-semibold text-green-800 dark:text-green-300 mb-6 flex items-center">
-                                            <i class="fas fa-lightbulb ml-4 text-green-600 text-2xl"></i>
+                                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-green-500 interactive-hover">
+                                        <h5 class="text-2xl sm:text-3xl font-semibold text-green-800 dark:text-green-300 mb-4 sm:mb-6 flex items-center">
+                                            <i class="fas fa-lightbulb ml-3 sm:ml-4 text-green-600 text-xl sm:text-2xl"></i>
                                             <span data-ar="الرؤية الاستراتيجية" data-en="Strategic Vision">الرؤية الاستراتيجية</span>
                                         </h5>
-                                        <p class="text-lg leading-relaxed" 
+                                        <p class="text-base sm:text-lg leading-relaxed" 
                                            data-ar="نقدر رؤية الإدارة الثاقبة في جعل السلامة أولوية قصوى، والتزامها بتطبيق أفضل الممارسات العالمية، مما يجعل مدرستنا نموذجاً يُحتذى به في مجال السلامة المدرسية." 
                                            data-en="We appreciate the administration's insightful vision in making safety a top priority, and their commitment to implementing global best practices, making our school a model to follow in the field of school safety.">نقدر رؤية الإدارة الثاقبة في جعل السلامة أولوية قصوى، والتزامها بتطبيق أفضل الممارسات العالمية، مما يجعل مدرستنا نموذجاً يُحتذى به في مجال السلامة المدرسية.</p>
                                     </div>
                                 </div>
                                 
-                                <div class="text-center glass-enhanced p-10 border-2 border-purple-200 dark:border-gray-600 interactive-hover">
-                                    <p class="text-3xl font-medium text-purple-800 dark:text-purple-300 mb-8 leading-relaxed">
-                                        <i class="fas fa-quote-right text-purple-500 ml-4 text-2xl"></i>
+                                <div class="text-center glass-enhanced p-6 sm:p-10 border-2 border-purple-200 dark:border-gray-600 interactive-hover">
+                                    <p class="text-2xl sm:text-3xl font-medium text-purple-800 dark:text-purple-300 mb-6 sm:mb-8 leading-relaxed">
+                                        <i class="fas fa-quote-right text-purple-500 ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                                         <span data-ar="إن هذا الدعم والاهتمام من قِبل الإدارة الكريمة يحفزنا على بذل المزيد من الجهود لضمان بيئة تعليمية آمنة ومحمية لجميع أفراد مجتمعنا المدرسي" 
                                               data-en="This support and attention from the esteemed administration motivates us to make even greater efforts to ensure a safe and protected educational environment for all members of our school community">إن هذا الدعم والاهتمام من قِبل الإدارة الكريمة يحفزنا على بذل المزيد من الجهود لضمان بيئة تعليمية آمنة ومحمية لجميع أفراد مجتمعنا المدرسي</span>
-                                        <i class="fas fa-quote-left text-purple-500 mr-4 text-2xl"></i>
+                                        <i class="fas fa-quote-left text-purple-500 mr-3 sm:mr-4 text-xl sm:text-2xl"></i>
                                     </p>
                                     
-                                    <div class="flex justify-center items-center mt-10">
-                                        <div class="text-center glass-enhanced p-8 border border-gray-200 dark:border-gray-600 interactive-hover">
-                                            <h6 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-3" 
+                                    <div class="flex justify-center items-center mt-8 sm:mt-10">
+                                        <div class="text-center glass-enhanced p-6 sm:p-8 border border-gray-200 dark:border-gray-600 interactive-hover">
+                                            <h6 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2 sm:mb-3" 
                                                 data-ar="عبدالرحمن أحمد عبدالرحمن" 
                                                 data-en="Abdulrahman Ahmed Abdulrahman">عبدالرحمن أحمد عبدالرحمن</h6>
-                                            <p class="text-xl text-primary font-semibold mb-2" 
+                                            <p class="text-lg sm:text-xl text-primary font-semibold mb-2" 
                                                data-ar="مسؤول السلامة والصحة المهنية" 
                                                data-en="Safety & Occupational Health Officer">مسؤول السلامة والصحة المهنية</p>
-                                            <p class="text-base text-gray-600 dark:text-gray-400" 
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400" 
                                                data-ar="مدرسة بني ياس الدولية" 
                                                data-en="Bani Yas International School">مدرسة بني ياس الدولية</p>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="text-center mt-12">
-                                    <div class="inline-flex items-center space-x-4 space-x-reverse text-warning bg-gradient-to-r from-warning/10 to-orange-500/10 px-10 py-6 rounded-full border-2 border-warning/20 interactive-hover">
-                                        <i class="fas fa-star text-2xl animate-pulse-slow"></i>
-                                        <span class="text-2xl font-bold" 
+                                <div class="text-center mt-8 sm:mt-12">
+                                    <div class="inline-flex items-center space-x-3 sm:space-x-4 space-x-reverse text-warning bg-gradient-to-r from-warning/10 to-orange-500/10 px-6 sm:px-10 py-4 sm:py-6 rounded-full border-2 border-warning/20 interactive-hover">
+                                        <i class="fas fa-star text-xl sm:text-2xl animate-pulse-slow"></i>
+                                        <span class="text-lg sm:text-2xl font-bold" 
                                               data-ar="شكراً لكم على ثقتكم ودعمكم المستمر" 
                                               data-en="Thank you for your trust and continuous support">شكراً لكم على ثقتكم ودعمكم المستمر</span>
-                                        <i class="fas fa-star text-2xl animate-pulse-slow"></i>
+                                        <i class="fas fa-star text-xl sm:text-2xl animate-pulse-slow"></i>
                                     </div>
                                 </div>
                             </div>
@@ -611,28 +831,28 @@
         </section>
 
         <!-- Introduction Section -->
-        <section id="intro" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-info-circle ml-5 text-primary text-4xl"></i>
+        <section id="intro" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-info-circle ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="نبذة تعريفية" data-en="Introduction">نبذة تعريفية</span>
                 </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="glass-enhanced p-10 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-8 text-accent flex items-center">
-                            <i class="fas fa-bullseye ml-4 text-2xl"></i>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
+                    <div class="glass-enhanced p-6 sm:p-10 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-accent flex items-center">
+                            <i class="fas fa-bullseye ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="دور قسم السلامة والصحة المهنية" data-en="Role of Safety & Occupational Health Department">دور قسم السلامة والصحة المهنية</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl" 
                            data-ar="يُعد قسم السلامة والصحة المهنية بمدرسة بني ياس الدولية الركيزة الأساسية في حماية جميع أفراد المجتمع المدرسي من الطلبة والموظفين. يعمل القسم على ضمان توفير بيئة تعليمية آمنة خالية من المخاطر، من خلال تطبيق أحدث معايير السلامة والصحة المهنية وتنفيذ إجراءات وقائية شاملة تغطي جميع جوانب العمل المدرسي." 
                            data-en="The Safety and Occupational Health Department at Bani Yas International School is the fundamental pillar in protecting all members of the school community, including students and staff. The department works to ensure a safe educational environment free from hazards, through implementing the latest safety and occupational health standards and executing comprehensive preventive procedures covering all aspects of school operations.">يُعد قسم السلامة والصحة المهنية بمدرسة بني ياس الدولية الركيزة الأساسية في حماية جميع أفراد المجتمع المدرسي من الطلبة والموظفين. يعمل القسم على ضمان توفير بيئة تعليمية آمنة خالية من المخاطر، من خلال تطبيق أحدث معايير السلامة والصحة المهنية وتنفيذ إجراءات وقائية شاملة تغطي جميع جوانب العمل المدرسي.</p>
                     </div>
-                    <div class="glass-enhanced p-10 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-8 text-accent flex items-center">
-                            <i class="fas fa-certificate ml-4 text-2xl"></i>
+                    <div class="glass-enhanced p-6 sm:p-10 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-accent flex items-center">
+                            <i class="fas fa-certificate ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="التزامنا بالمعايير والسياسات" data-en="Our Commitment to Standards and Policies">التزامنا بالمعايير والسياسات</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl" 
                            data-ar="تلتزم مدرسة بني ياس الدولية التزاماً كاملاً بتطبيق سياسات دائرة التعليم والمعرفة في أبوظبي، بالإضافة إلى المعايير الدولية للسلامة المدرسية. نعمل وفقاً لأفضل الممارسات العالمية ونتبع إرشادات مركز أبوظبي للصحة العامة لضمان تحقيق أعلى مستويات الأمان والحماية في البيئة التعليمية." 
                            data-en="Bani Yas International School is fully committed to implementing the policies of Abu Dhabi Department of Education and Knowledge, in addition to international school safety standards. We work according to global best practices and follow the guidelines of Abu Dhabi Public Health Center to ensure achieving the highest levels of security and protection in the educational environment.">تلتزم مدرسة بني ياس الدولية التزاماً كاملاً بتطبيق سياسات دائرة التعليم والمعرفة في أبوظبي، بالإضافة إلى المعايير الدولية للسلامة المدرسية. نعمل وفقاً لأفضل الممارسات العالمية ونتبع إرشادات مركز أبوظبي للصحة العامة لضمان تحقيق أعلى مستويات الأمان والحماية في البيئة التعليمية.</p>
                     </div>
@@ -641,39 +861,39 @@
         </section>
 
         <!-- Objectives Section -->
-        <section id="objectives" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-bullseye ml-5 text-primary text-4xl"></i>
+        <section id="objectives" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-bullseye ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="الأهداف الرئيسية" data-en="Main Objectives">الأهداف الرئيسية</span>
                 </h3>
-                <div class="space-y-10">
-                    <div class="glass-enhanced p-10 border-l-4 border-blue-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-primary flex items-center">
-                            <i class="fas fa-school ml-4 text-2xl"></i>
+                <div class="space-y-6 sm:space-y-10">
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-blue-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-primary flex items-center">
+                            <i class="fas fa-school ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="توفير بيئة تعليمية آمنة وخالية من المخاطر" data-en="Providing a Safe Educational Environment Free from Hazards">توفير بيئة تعليمية آمنة وخالية من المخاطر</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl" 
                            data-ar="نهدف إلى خلق بيئة تعليمية متكاملة تتسم بالأمان التام، حيث يمكن للطلبة والموظفين ممارسة أنشطتهم التعليمية والإدارية بطمأنينة كاملة. يشمل ذلك تأمين جميع المرافق المدرسية من الفصول الدراسية والمختبرات والملاعب والمكتبات، وضمان خلوها من أي مخاطر محتملة قد تعرض سلامة الأفراد للخطر." 
                            data-en="We aim to create an integrated educational environment characterized by complete safety, where students and staff can carry out their educational and administrative activities with complete peace of mind. This includes securing all school facilities from classrooms, laboratories, playgrounds and libraries, and ensuring they are free from any potential hazards that may endanger the safety of individuals.">نهدف إلى خلق بيئة تعليمية متكاملة تتسم بالأمان التام، حيث يمكن للطلبة والموظفين ممارسة أنشطتهم التعليمية والإدارية بطمأنينة كاملة. يشمل ذلك تأمين جميع المرافق المدرسية من الفصول الدراسية والمختبرات والملاعب والمكتبات، وضمان خلوها من أي مخاطر محتملة قد تعرض سلامة الأفراد للخطر.</p>
                     </div>
                     
-                    <div class="glass-enhanced p-10 border-l-4 border-green-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-accent flex items-center">
-                            <i class="fas fa-users ml-4 text-2xl"></i>
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-green-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-accent flex items-center">
+                            <i class="fas fa-users ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="تعزيز ثقافة السلامة بين جميع أفراد المجتمع المدرسي" data-en="Promoting Safety Culture Among All School Community Members">تعزيز ثقافة السلامة بين جميع أفراد المجتمع المدرسي</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl" 
                            data-ar="نسعى لغرس ثقافة السلامة كنهج حياة لدى جميع منسوبي المدرسة، من خلال برامج التوعية المستمرة والتدريب المنتظم. نعمل على تطوير الوعي الذاتي للسلامة لدى الطلبة والمعلمين والإداريين، بحيث يصبح التفكير في السلامة جزءاً لا يتجزأ من سلوكهم اليومي." 
                            data-en="We strive to instill a safety culture as a way of life among all school personnel, through continuous awareness programs and regular training. We work to develop safety self-awareness among students, teachers and administrators, so that safety thinking becomes an integral part of their daily behavior.">نسعى لغرس ثقافة السلامة كنهج حياة لدى جميع منسوبي المدرسة، من خلال برامج التوعية المستمرة والتدريب المنتظم. نعمل على تطوير الوعي الذاتي للسلامة لدى الطلبة والمعلمين والإداريين، بحيث يصبح التفكير في السلامة جزءاً لا يتجزأ من سلوكهم اليومي.</p>
                     </div>
                     
-                    <div class="glass-enhanced p-10 border-l-4 border-yellow-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-warning flex items-center">
-                            <i class="fas fa-shield-alt ml-4 text-2xl"></i>
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-yellow-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-warning flex items-center">
+                            <i class="fas fa-shield-alt ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="الوقاية من الإصابات والحوادث داخل الحرم المدرسي" data-en="Prevention of Injuries and Accidents Within School Campus">الوقاية من الإصابات والحوادث داخل الحرم المدرسي</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl" 
                            data-ar="نتبع نهجاً استباقياً في منع وقوع الحوادث والإصابات من خلال تحديد المخاطر المحتملة ومعالجتها قبل حدوثها. يشمل ذلك إجراء تقييمات دورية شاملة للمخاطر في جميع أنحاء المدرسة، ووضع خطط وقائية محددة لكل منطقة ونشاط." 
                            data-en="We follow a proactive approach in preventing accidents and injuries by identifying potential hazards and addressing them before they occur. This includes conducting comprehensive periodic risk assessments throughout the school, and developing specific preventive plans for each area and activity.">نتبع نهجاً استباقياً في منع وقوع الحوادث والإصابات من خلال تحديد المخاطر المحتملة ومعالجتها قبل حدوثها. يشمل ذلك إجراء تقييمات دورية شاملة للمخاطر في جميع أنحاء المدرسة، ووضع خطط وقائية محددة لكل منطقة ونشاط.</p>
                     </div>
@@ -682,63 +902,67 @@
         </section>
 
         <!-- Team Section -->
-        <section id="team" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-sitemap ml-5 text-primary text-4xl"></i>
+        <section id="team" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-sitemap ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="الهيكل التنظيمي لفريق السلامة" data-en="Safety Team Organizational Structure">الهيكل التنظيمي لفريق السلامة</span>
                 </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="glass-enhanced p-10 text-center interactive-hover">
-                        <div class="w-36 h-36 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-8 shadow-2xl animate-pulse-slow">
-                            <i class="fas fa-user-tie"></i>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
+                    <div class="glass-enhanced p-6 sm:p-10 text-center interactive-hover">
+                        <!-- Safety Officer Photo -->
+                        <div class="mb-6 sm:mb-8">
+                            <div class="w-28 h-28 sm:w-36 sm:h-36 mx-auto shadow-2xl animate-pulse-slow relative overflow-hidden rounded-full">
+                                <img src="https://www2.0zz0.com/2025/07/27/13/975523908.jpg" alt="Safety Officer" class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-primary/20 shadow-2xl">
+                            </div>
                         </div>
-                        <h4 class="text-3xl font-bold text-primary mb-4" 
+                        
+                        <h4 class="text-2xl sm:text-3xl font-bold text-primary mb-3 sm:mb-4" 
                             data-ar="مسؤول السلامة والصحة المهنية" 
                             data-en="Safety & Occupational Health Officer">مسؤول السلامة والصحة المهنية</h4>
-                        <p class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6" 
+                        <p class="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4 sm:mb-6" 
                            data-ar="عبدالرحمن أحمد عبدالرحمن" 
                            data-en="Abdulrahman Ahmed Abdulrahman">عبدالرحمن أحمد عبدالرحمن</p>
-                        <div class="space-y-4 text-gray-600 dark:text-gray-400">
-                            <div class="flex items-center justify-center space-x-4 space-x-reverse glass-enhanced p-4 rounded-lg interactive-hover">
-                                <i class="fas fa-phone text-success text-xl"></i>
-                                <span class="font-medium text-lg">0552847411</span>
+                        <div class="space-y-3 sm:space-y-4 text-gray-600 dark:text-gray-400">
+                            <div class="flex items-center justify-center space-x-3 sm:space-x-4 space-x-reverse glass-enhanced p-3 sm:p-4 rounded-lg interactive-hover">
+                                <i class="fas fa-phone text-success text-lg sm:text-xl"></i>
+                                <span class="font-medium text-base sm:text-lg">0552847411</span>
                             </div>
-                            <div class="flex items-center justify-center space-x-4 space-x-reverse glass-enhanced p-4 rounded-lg interactive-hover">
-                                <i class="fas fa-envelope text-primary text-xl"></i>
-                                <span class="font-medium text-lg">nfose2007@gmail.com</span>
+                            <div class="flex items-center justify-center space-x-3 sm:space-x-4 space-x-reverse glass-enhanced p-3 sm:p-4 rounded-lg interactive-hover">
+                                <i class="fas fa-envelope text-primary text-lg sm:text-xl"></i>
+                                <span class="font-medium text-base sm:text-lg break-all">nfose2007@gmail.com</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="space-y-8">
-                        <h4 class="text-3xl font-semibold text-accent flex items-center">
-                            <i class="fas fa-users ml-4 text-2xl"></i>
+                    <div class="space-y-6 sm:space-y-8">
+                        <h4 class="text-2xl sm:text-3xl font-semibold text-accent flex items-center">
+                            <i class="fas fa-users ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="أعضاء فريق السلامة" data-en="Safety Team Members">أعضاء فريق السلامة</span>
                         </h4>
-                        <div class="space-y-6">
-                            <div class="flex items-center p-8 glass-enhanced interactive-hover">
-                                <div class="w-20 h-20 bg-success rounded-full flex items-center justify-center text-white text-3xl ml-6 icon-button success">
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="flex items-center p-6 sm:p-8 glass-enhanced interactive-hover">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-success rounded-full flex items-center justify-center text-white text-2xl sm:text-3xl ml-4 sm:ml-6 icon-button success flex-shrink-0">
                                     <i class="fas fa-ambulance"></i>
                                 </div>
-                                <div>
-                                    <h5 class="font-semibold text-2xl mb-2" 
+                                <div class="min-w-0">
+                                    <h5 class="font-semibold text-lg sm:text-2xl mb-2" 
                                         data-ar="مشرفو الطوارئ والإخلاء" 
                                         data-en="Emergency and Evacuation Supervisors">مشرفو الطوارئ والإخلاء</h5>
-                                    <p class="text-lg text-gray-600 dark:text-gray-400" 
+                                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                        data-ar="مسؤولون عن تنظيم وتنفيذ خطط الإخلاء والاستجابة للطوارئ" 
                                        data-en="Responsible for organizing and implementing evacuation plans and emergency response">مسؤولون عن تنظيم وتنفيذ خطط الإخلاء والاستجابة للطوارئ</p>
                                 </div>
                             </div>
-                            <div class="flex items-center p-8 glass-enhanced interactive-hover">
-                                <div class="w-20 h-20 bg-danger rounded-full flex items-center justify-center text-white text-3xl ml-6 icon-button danger">
+                            <div class="flex items-center p-6 sm:p-8 glass-enhanced interactive-hover">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-danger rounded-full flex items-center justify-center text-white text-2xl sm:text-3xl ml-4 sm:ml-6 icon-button danger flex-shrink-0">
                                     <i class="fas fa-first-aid"></i>
                                 </div>
-                                <div>
-                                    <h5 class="font-semibold text-2xl mb-2" 
+                                <div class="min-w-0">
+                                    <h5 class="font-semibold text-lg sm:text-2xl mb-2" 
                                         data-ar="ضباط الإسعاف الأولي" 
                                         data-en="First Aid Officers">ضباط الإسعاف الأولي</h5>
-                                    <p class="text-lg text-gray-600 dark:text-gray-400" 
+                                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                        data-ar="مدربون على تقديم الإسعافات الأولية والاستجابة الطبية الفورية" 
                                        data-en="Trained to provide first aid and immediate medical response">مدربون على تقديم الإسعافات الأولية والاستجابة الطبية الفورية</p>
                                 </div>
@@ -750,56 +974,56 @@
         </section>
 
         <!-- Policies Section -->
-        <section id="policies" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-clipboard-list ml-5 text-primary text-4xl"></i>
+        <section id="policies" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-clipboard-list ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="السياسات والإجراءات" data-en="Policies and Procedures">السياسات والإجراءات</span>
                 </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="glass-enhanced p-10 border-l-4 border-red-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-danger flex items-center">
-                            <i class="fas fa-smoking-ban ml-4 text-2xl"></i>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-red-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-danger flex items-center">
+                            <i class="fas fa-smoking-ban ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="سياسة منع التدخين" data-en="No Smoking Policy">سياسة منع التدخين</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl" 
                            data-ar="تطبق المدرسة سياسة صارمة لمنع التدخين نهائياً داخل جميع مرافق المدرسة ومحيطها الخارجي. تشمل هذه السياسة منع التدخين التقليدي والإلكتروني، وتطبق على جميع الطلبة والموظفين والزوار دون استثناء." 
                            data-en="The school implements a strict policy to completely prohibit smoking within all school facilities and its external perimeter. This policy includes prohibition of traditional and electronic smoking, and applies to all students, staff and visitors without exception.">تطبق المدرسة سياسة صارمة لمنع التدخين نهائياً داخل جميع مرافق المدرسة ومحيطها الخارجي. تشمل هذه السياسة منع التدخين التقليدي والإلكتروني، وتطبق على جميع الطلبة والموظفين والزوار دون استثناء.</p>
-                        <ul class="text-lg text-gray-600 dark:text-gray-400 space-y-3">
+                        <ul class="text-base sm:text-lg text-gray-600 dark:text-gray-400 space-y-3">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-3 text-xl"></i>
+                                <i class="fas fa-check text-success ml-2 sm:ml-3 text-lg sm:text-xl"></i>
                                 <span data-ar="عقوبات تأديبية للمخالفين" data-en="Disciplinary penalties for violators">عقوبات تأديبية للمخالفين</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-3 text-xl"></i>
+                                <i class="fas fa-check text-success ml-2 sm:ml-3 text-lg sm:text-xl"></i>
                                 <span data-ar="نصب لافتات تحذيرية" data-en="Installation of warning signs">نصب لافتات تحذيرية</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-3 text-xl"></i>
+                                <i class="fas fa-check text-success ml-2 sm:ml-3 text-lg sm:text-xl"></i>
                                 <span data-ar="برامج توعية عن أضرار التدخين" data-en="Awareness programs about smoking hazards">برامج توعية عن أضرار التدخين</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <div class="glass-enhanced p-10 border-l-4 border-orange-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-warning flex items-center">
-                            <i class="fas fa-exclamation-triangle ml-4 text-2xl"></i>
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-orange-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-warning flex items-center">
+                            <i class="fas fa-exclamation-triangle ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="سياسة إدارة الطوارئ والإخلاء" data-en="Emergency Management and Evacuation Policy">سياسة إدارة الطوارئ والإخلاء</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl" 
                            data-ar="خطة شاملة للاستجابة لجميع حالات الطوارئ المحتملة، تتضمن إجراءات الإخلاء السريع والآمن، وتحديد المسؤوليات، ونقاط التجمع، وطرق التواصل مع الجهات الأمنية والطبية." 
                            data-en="A comprehensive plan for responding to all potential emergency situations, including rapid and safe evacuation procedures, defining responsibilities, assembly points, and communication methods with security and medical authorities.">خطة شاملة للاستجابة لجميع حالات الطوارئ المحتملة، تتضمن إجراءات الإخلاء السريع والآمن، وتحديد المسؤوليات، ونقاط التجمع، وطرق التواصل مع الجهات الأمنية والطبية.</p>
-                        <ul class="text-lg text-gray-600 dark:text-gray-400 space-y-3">
+                        <ul class="text-base sm:text-lg text-gray-600 dark:text-gray-400 space-y-3">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-3 text-xl"></i>
+                                <i class="fas fa-check text-success ml-2 sm:ml-3 text-lg sm:text-xl"></i>
                                 <span data-ar="تدريبات إخلاء دورية" data-en="Regular evacuation drills">تدريبات إخلاء دورية</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-3 text-xl"></i>
+                                <i class="fas fa-check text-success ml-2 sm:ml-3 text-lg sm:text-xl"></i>
                                 <span data-ar="أنظمة إنذار متطورة" data-en="Advanced alarm systems">أنظمة إنذار متطورة</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-3 text-xl"></i>
+                                <i class="fas fa-check text-success ml-2 sm:ml-3 text-lg sm:text-xl"></i>
                                 <span data-ar="تحديد نقاط التجمع الآمنة" data-en="Identification of safe assembly points">تحديد نقاط التجمع الآمنة</span>
                             </li>
                         </ul>
@@ -809,63 +1033,71 @@
         </section>
 
         <!-- Emergency Plans Section -->
-        <section id="emergency" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-route ml-5 text-primary text-4xl"></i>
+        <section id="emergency" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-route ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="خطط الإخلاء والطوارئ" data-en="Evacuation and Emergency Plans">خطط الإخلاء والطوارئ</span>
                 </h3>
-                <div class="space-y-10">
-                    <div class="glass-enhanced p-10 border-2 border-red-200 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-8 text-danger flex items-center">
-                            <i class="fas fa-list-alt ml-4 text-2xl"></i>
+                <div class="space-y-6 sm:space-y-10">
+                    <div class="glass-enhanced p-6 sm:p-10 border-2 border-red-200 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-danger flex items-center">
+                            <i class="fas fa-list-alt ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="خطة الإخلاء العامة" data-en="General Evacuation Plan">خطة الإخلاء العامة</span>
                         </h4>
-                        <div class="grid md:grid-cols-2 gap-10">
-                            <div class="glass-enhanced p-8">
-                                <h5 class="font-semibold mb-6 text-2xl text-primary" 
+                        <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
+                            <div class="glass-enhanced p-6 sm:p-8">
+                                <h5 class="font-semibold mb-4 sm:mb-6 text-xl sm:text-2xl text-primary" 
                                     data-ar="إجراءات التنفيذ:" data-en="Implementation Procedures:">إجراءات التنفيذ:</h5>
-                                <ol class="text-lg space-y-4 text-gray-700 dark:text-gray-300">
+                                <ol class="text-base sm:text-lg space-y-3 sm:space-y-4 text-gray-700 dark:text-gray-300">
                                     <li class="flex items-start">
-                                        <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm ml-4 mt-1 flex-shrink-0 font-bold">1</span>
+                                        <span class="bg-primary text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm ml-3 sm:ml-4 mt-1 flex-shrink-0 font-bold">1</span>
                                         <span data-ar="تشغيل نظام الإنذار فوراً عند اكتشاف الخطر" data-en="Activate alarm system immediately upon danger detection">تشغيل نظام الإنذار فوراً عند اكتشاف الخطر</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm ml-4 mt-1 flex-shrink-0 font-bold">2</span>
+                                        <span class="bg-primary text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm ml-3 sm:ml-4 mt-1 flex-shrink-0 font-bold">2</span>
                                         <span data-ar="إيقاف جميع الأنشطة والتوجه للمخارج المحددة" data-en="Stop all activities and proceed to designated exits">إيقاف جميع الأنشطة والتوجه للمخارج المحددة</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm ml-4 mt-1 flex-shrink-0 font-bold">3</span>
+                                        <span class="bg-primary text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm ml-3 sm:ml-4 mt-1 flex-shrink-0 font-bold">3</span>
                                         <span data-ar="المحافظة على الهدوء وعدم الجري أو التزاحم" data-en="Maintain calm and avoid running or crowding">المحافظة على الهدوء وعدم الجري أو التزاحم</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm ml-4 mt-1 flex-shrink-0 font-bold">4</span>
+                                        <span class="bg-primary text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm ml-3 sm:ml-4 mt-1 flex-shrink-0 font-bold">4</span>
                                         <span data-ar="التجمع في النقاط المحددة مسبقاً" data-en="Assemble at pre-designated points">التجمع في النقاط المحددة مسبقاً</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm ml-4 mt-1 flex-shrink-0 font-bold">5</span>
+                                        <span class="bg-primary text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm ml-3 sm:ml-4 mt-1 flex-shrink-0 font-bold">5</span>
                                         <span data-ar="التأكد من وجود جميع الأفراد وإبلاغ المسؤولين" data-en="Ensure all personnel are present and notify officials">التأكد من وجود جميع الأفراد وإبلاغ المسؤولين</span>
                                     </li>
                                 </ol>
                             </div>
-                            <div class="glass-enhanced p-8">
-                                <h5 class="font-semibold mb-6 text-2xl text-accent" 
+                            <div class="glass-enhanced p-6 sm:p-8">
+                                <h5 class="font-semibold mb-4 sm:mb-6 text-xl sm:text-2xl text-accent" 
                                     data-ar="آلية التواصل:" data-en="Communication Mechanism:">آلية التواصل:</h5>
-                                <div class="space-y-4 text-lg text-gray-700 dark:text-gray-300">
-                                    <div class="flex items-center glass-enhanced p-4 rounded-lg interactive-hover">
-                                        <i class="fas fa-phone text-danger ml-4 text-xl"></i>
-                                        <span data-ar="الدفاع المدني: 997" data-en="Civil Defense: 997">الدفاع المدني: 997</span>
+                                <div class="space-y-3 sm:space-y-4 text-base sm:text-lg text-gray-700 dark:text-gray-300">
+                                    <div class="emergency-number text-center mb-4 sm:mb-6">
+                                        <i class="fas fa-exclamation-triangle text-3xl sm:text-4xl mb-3 sm:mb-4"></i>
+                                        <div class="text-lg sm:text-2xl font-bold mb-2" data-ar="رقم الطوارئ الموحد" data-en="Unified Emergency Number">رقم الطوارئ الموحد</div>
+                                        <div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3">999</div>
+                                        <div class="text-xs sm:text-sm" data-ar="للإسعاف - الدفاع المدني - الشرطة" data-en="For Ambulance - Civil Defense - Police">للإسعاف - الدفاع المدني - الشرطة</div>
                                     </div>
-                                    <div class="flex items-center glass-enhanced p-4 rounded-lg interactive-hover">
-                                        <i class="fas fa-ambulance text-success ml-4 text-xl"></i>
-                                        <span data-ar="الإسعاف: 998" data-en="Ambulance: 998">الإسعاف: 998</span>
+                                    <div class="grid grid-cols-3 gap-2 sm:gap-4">
+                                        <div class="flex flex-col items-center glass-enhanced p-2 sm:p-4 rounded-lg interactive-hover">
+                                            <i class="fas fa-ambulance text-success text-lg sm:text-2xl mb-1 sm:mb-2"></i>
+                                            <span class="text-xs sm:text-sm font-medium" data-ar="الإسعاف" data-en="Ambulance">الإسعاف</span>
+                                        </div>
+                                        <div class="flex flex-col items-center glass-enhanced p-2 sm:p-4 rounded-lg interactive-hover">
+                                            <i class="fas fa-fire-extinguisher text-danger text-lg sm:text-2xl mb-1 sm:mb-2"></i>
+                                            <span class="text-xs sm:text-sm font-medium" data-ar="الدفاع المدني" data-en="Civil Defense">الدفاع المدني</span>
+                                        </div>
+                                        <div class="flex flex-col items-center glass-enhanced p-2 sm:p-4 rounded-lg interactive-hover">
+                                            <i class="fas fa-shield-alt text-primary text-lg sm:text-2xl mb-1 sm:mb-2"></i>
+                                            <span class="text-xs sm:text-sm font-medium" data-ar="الشرطة" data-en="Police">الشرطة</span>
+                                        </div>
                                     </div>
-                                    <div class="flex items-center glass-enhanced p-4 rounded-lg interactive-hover">
-                                        <i class="fas fa-shield-alt text-primary ml-4 text-xl"></i>
-                                        <span data-ar="الشرطة: 999" data-en="Police: 999">الشرطة: 999</span>
-                                    </div>
-                                    <div class="flex items-center glass-enhanced p-4 rounded-lg interactive-hover">
-                                        <i class="fas fa-school text-info ml-4 text-xl"></i>
+                                    <div class="flex items-center glass-enhanced p-3 sm:p-4 rounded-lg interactive-hover">
+                                        <i class="fas fa-school text-info ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                         <span data-ar="إبلاغ إدارة المدرسة فوراً" data-en="Notify school administration immediately">إبلاغ إدارة المدرسة فوراً</span>
                                     </div>
                                 </div>
@@ -873,31 +1105,31 @@
                         </div>
                     </div>
                     
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="glass-enhanced p-8 border-l-4 border-yellow-500 interactive-hover">
-                            <h5 class="font-semibold text-warning mb-4 flex items-center text-xl">
-                                <i class="fas fa-fire ml-3 text-orange-500 text-2xl"></i>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+                        <div class="glass-enhanced p-6 sm:p-8 border-l-4 border-yellow-500 interactive-hover">
+                            <h5 class="font-semibold text-warning mb-3 sm:mb-4 flex items-center text-lg sm:text-xl">
+                                <i class="fas fa-fire ml-2 sm:ml-3 text-orange-500 text-xl sm:text-2xl"></i>
                                 <span data-ar="حالات الحريق" data-en="Fire Situations">حالات الحريق</span>
                             </h5>
-                            <p class="text-lg text-gray-600 dark:text-gray-400" 
+                            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                data-ar="إخلاء فوري من أقرب مخرج آمن، استخدام السلالم وتجنب المصاعد، التجمع في الساحة الخارجية الشرقية." 
                                data-en="Immediate evacuation from nearest safe exit, use stairs and avoid elevators, assemble in the eastern outdoor courtyard.">إخلاء فوري من أقرب مخرج آمن، استخدام السلالم وتجنب المصاعد، التجمع في الساحة الخارجية الشرقية.</p>
                         </div>
-                        <div class="glass-enhanced p-8 border-l-4 border-blue-500 interactive-hover">
-                            <h5 class="font-semibold text-primary mb-4 flex items-center text-xl">
-                                <i class="fas fa-bolt ml-3 text-yellow-500 text-2xl"></i>
+                        <div class="glass-enhanced p-6 sm:p-8 border-l-4 border-blue-500 interactive-hover">
+                            <h5 class="font-semibold text-primary mb-3 sm:mb-4 flex items-center text-lg sm:text-xl">
+                                <i class="fas fa-bolt ml-2 sm:ml-3 text-yellow-500 text-xl sm:text-2xl"></i>
                                 <span data-ar="انقطاع الكهرباء" data-en="Power Outage">انقطاع الكهرباء</span>
                             </h5>
-                            <p class="text-lg text-gray-600 dark:text-gray-400" 
+                            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                data-ar="تشغيل الإضاءة الطارئة، البقاء في الأماكن الحالية حتى استعادة الكهرباء أو تلقي تعليمات الإخلاء." 
                                data-en="Activate emergency lighting, remain in current locations until power restoration or evacuation instructions are received.">تشغيل الإضاءة الطارئة، البقاء في الأماكن الحالية حتى استعادة الكهرباء أو تلقي تعليمات الإخلاء.</p>
                         </div>
-                        <div class="glass-enhanced p-8 border-l-4 border-green-500 interactive-hover">
-                            <h5 class="font-semibold text-accent mb-4 flex items-center text-xl">
-                                <i class="fas fa-heart ml-3 text-red-500 text-2xl"></i>
+                        <div class="glass-enhanced p-6 sm:p-8 border-l-4 border-green-500 interactive-hover">
+                            <h5 class="font-semibold text-accent mb-3 sm:mb-4 flex items-center text-lg sm:text-xl">
+                                <i class="fas fa-heart ml-2 sm:ml-3 text-red-500 text-xl sm:text-2xl"></i>
                                 <span data-ar="حالات طبية طارئة" data-en="Medical Emergencies">حالات طبية طارئة</span>
                             </h5>
-                            <p class="text-lg text-gray-600 dark:text-gray-400" 
+                            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                data-ar="استدعاء ضابط الإسعاف فوراً، تقديم الإسعافات الأولية، الاتصال بالإسعاف عند الحاجة." 
                                data-en="Call first aid officer immediately, provide first aid, contact ambulance when needed.">استدعاء ضابط الإسعاف فوراً، تقديم الإسعافات الأولية، الاتصال بالإسعاف عند الحاجة.</p>
                         </div>
@@ -907,64 +1139,64 @@
         </section>
 
         <!-- Training Section -->
-        <section id="training" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-graduation-cap ml-5 text-primary text-4xl"></i>
+        <section id="training" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-graduation-cap ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="التوعية والتدريب" data-en="Awareness and Training">التوعية والتدريب</span>
                 </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="glass-enhanced p-10 border-l-4 border-red-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-danger flex items-center">
-                            <i class="fas fa-medkit ml-4 text-2xl"></i>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-red-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-danger flex items-center">
+                            <i class="fas fa-medkit ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="ورش الإسعافات الأولية" data-en="First Aid Workshops">ورش الإسعافات الأولية</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl" 
                            data-ar="برنامج تدريبي شامل يهدف إلى إكساب الموظفين والطلبة المهارات الأساسية في الإسعافات الأولية. يتضمن التدريب العملي على التعامل مع الجروح والكسور، والإنعاش القلبي الرئوي، والتعامل مع حالات الاختناق والحروق." 
                            data-en="A comprehensive training program aimed at providing staff and students with basic first aid skills. It includes practical training on dealing with wounds and fractures, cardiopulmonary resuscitation, and handling choking and burn cases.">برنامج تدريبي شامل يهدف إلى إكساب الموظفين والطلبة المهارات الأساسية في الإسعافات الأولية. يتضمن التدريب العملي على التعامل مع الجروح والكسور، والإنعاش القلبي الرئوي، والتعامل مع حالات الاختناق والحروق.</p>
-                        <ul class="text-lg space-y-4">
+                        <ul class="text-base sm:text-lg space-y-3 sm:space-y-4">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="تدريب عملي على دمى الإنعاش" data-en="Practical training on CPR mannequins">تدريب عملي على دمى الإنعاش</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="تعلم تقنيات وقف النزيف" data-en="Learning bleeding control techniques">تعلم تقنيات وقف النزيف</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="التعامل مع حالات الصدمة" data-en="Handling shock cases">التعامل مع حالات الصدمة</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="شهادات معتمدة للمتدربين" data-en="Certified certificates for trainees">شهادات معتمدة للمتدربين</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <div class="glass-enhanced p-10 border-l-4 border-blue-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-primary flex items-center">
-                            <i class="fas fa-flask ml-4 text-2xl"></i>
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-blue-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-primary flex items-center">
+                            <i class="fas fa-flask ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="دورات السلامة في المختبرات" data-en="Laboratory Safety Courses">دورات السلامة في المختبرات</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl" 
                            data-ar="تدريب متخصص للمعلمين والفنيين والطلبة على قواعد السلامة في المختبرات العلمية. يغطي التدريب التعامل الآمن مع المواد الكيميائية، وإجراءات الطوارئ المختبرية، واستخدام معدات الحماية الشخصية." 
                            data-en="Specialized training for teachers, technicians and students on safety rules in scientific laboratories. The training covers safe handling of chemicals, laboratory emergency procedures, and use of personal protective equipment.">تدريب متخصص للمعلمين والفنيين والطلبة على قواعد السلامة في المختبرات العلمية. يغطي التدريب التعامل الآمن مع المواد الكيميائية، وإجراءات الطوارئ المختبرية، واستخدام معدات الحماية الشخصية.</p>
-                        <ul class="text-lg space-y-4">
+                        <ul class="text-base sm:text-lg space-y-3 sm:space-y-4">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="قواعد تخزين المواد الكيميائية" data-en="Chemical storage rules">قواعد تخزين المواد الكيميائية</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="استخدام خزائن الأدخنة" data-en="Using fume hoods">استخدام خزائن الأدخنة</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="إجراءات التعامل مع الانسكابات" data-en="Spill handling procedures">إجراءات التعامل مع الانسكابات</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="صيانة المعدات المختبرية" data-en="Laboratory equipment maintenance">صيانة المعدات المختبرية</span>
                             </li>
                         </ul>
@@ -974,56 +1206,56 @@
         </section>
 
         <!-- Activities Section -->
-        <section id="activities" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-children ml-5 text-primary text-4xl"></i>
+        <section id="activities" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-children ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="أنشطة الطلاب في مجال السلامة" data-en="Student Safety Activities">أنشطة الطلاب في مجال السلامة</span>
                 </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="glass-enhanced p-10 border-l-4 border-blue-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-primary flex items-center">
-                            <i class="fas fa-users-cog ml-4 text-2xl"></i>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-blue-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-primary flex items-center">
+                            <i class="fas fa-users-cog ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="فرق السلامة الطلابية" data-en="Student Safety Teams">فرق السلامة الطلابية</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl" 
                            data-ar="تشكل المدرسة فرقاً طلابية متخصصة في السلامة من مختلف المراحل الدراسية، حيث يتم اختيار الطلبة المتميزين وتدريبهم ليكونوا سفراء للسلامة بين زملائهم." 
                            data-en="The school forms specialized student safety teams from different grade levels, where outstanding students are selected and trained to be safety ambassadors among their peers.">تشكل المدرسة فرقاً طلابية متخصصة في السلامة من مختلف المراحل الدراسية، حيث يتم اختيار الطلبة المتميزين وتدريبهم ليكونوا سفراء للسلامة بين زملائهم.</p>
-                        <ul class="text-lg space-y-4">
+                        <ul class="text-base sm:text-lg space-y-3 sm:space-y-4">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="مراقبة تطبيق قواعد السلامة" data-en="Monitoring safety rules implementation">مراقبة تطبيق قواعد السلامة</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="مساعدة الطلبة الجدد" data-en="Helping new students">مساعدة الطلبة الجدد</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="المشاركة في تدريبات الإخلاء" data-en="Participating in evacuation drills">المشاركة في تدريبات الإخلاء</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <div class="glass-enhanced p-10 border-l-4 border-green-500 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-6 text-accent flex items-center">
-                            <i class="fas fa-trophy ml-4 text-2xl"></i>
+                    <div class="glass-enhanced p-6 sm:p-10 border-l-4 border-green-500 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 text-accent flex items-center">
+                            <i class="fas fa-trophy ml-3 sm:ml-4 text-xl sm:text-2xl"></i>
                             <span data-ar="مسابقات توعوية" data-en="Awareness Competitions">مسابقات توعوية</span>
                         </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-xl" 
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl" 
                            data-ar="تنظم المدرسة مسابقات متنوعة ومبتكرة تهدف إلى زيادة الوعي بقضايا السلامة بطريقة تفاعلية وممتعة." 
                            data-en="The school organizes various and innovative competitions aimed at increasing awareness of safety issues in an interactive and enjoyable way.">تنظم المدرسة مسابقات متنوعة ومبتكرة تهدف إلى زيادة الوعي بقضايا السلامة بطريقة تفاعلية وممتعة.</p>
-                        <ul class="text-lg space-y-4">
+                        <ul class="text-base sm:text-lg space-y-3 sm:space-y-4">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="مسابقة أفضل شعار للسلامة" data-en="Best safety logo competition">مسابقة أفضل شعار للسلامة</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="مسابقة المعرفة في السلامة" data-en="Safety knowledge competition">مسابقة المعرفة في السلامة</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-success ml-4 text-xl"></i>
+                                <i class="fas fa-check text-success ml-3 sm:ml-4 text-lg sm:text-xl"></i>
                                 <span data-ar="مسابقة أفضل فيديو توعوي" data-en="Best awareness video competition">مسابقة أفضل فيديو توعوي</span>
                             </li>
                         </ul>
@@ -1033,83 +1265,83 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="mb-20 section-card">
-            <div class="card-enhanced p-12 interactive-hover">
-                <h3 class="text-5xl font-bold gradient-text-enhanced mb-10 flex items-center">
-                    <i class="fas fa-phone ml-5 text-primary text-4xl"></i>
+        <section id="contact" class="mb-12 sm:mb-20 section-card">
+            <div class="card-enhanced p-6 sm:p-12 interactive-hover">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-enhanced mb-6 sm:mb-10 flex items-center">
+                    <i class="fas fa-phone ml-3 sm:ml-5 text-primary text-2xl sm:text-4xl"></i>
                     <span data-ar="التواصل والشكاوى" data-en="Contact and Complaints">التواصل والشكاوى</span>
                 </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="glass-enhanced p-10 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-8 text-primary" 
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
+                    <div class="glass-enhanced p-6 sm:p-10 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-primary" 
                             data-ar="قنوات التواصل المتاحة" data-en="Available Communication Channels">قنوات التواصل المتاحة</h4>
-                        <div class="space-y-6">
-                            <div class="flex items-center p-6 glass-enhanced interactive-hover">
-                                <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center text-white ml-6 icon-button success">
-                                    <i class="fas fa-phone text-xl"></i>
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="flex items-center p-4 sm:p-6 glass-enhanced interactive-hover">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-success rounded-full flex items-center justify-center text-white ml-4 sm:ml-6 icon-button success flex-shrink-0">
+                                    <i class="fas fa-phone text-lg sm:text-xl"></i>
                                 </div>
-                                <div>
-                                    <h5 class="font-semibold text-xl mb-2" data-ar="الهاتف المباشر" data-en="Direct Phone">الهاتف المباشر</h5>
-                                    <p class="text-primary font-bold text-lg">0552847411</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400" 
+                                <div class="min-w-0">
+                                    <h5 class="font-semibold text-lg sm:text-xl mb-1 sm:mb-2" data-ar="الهاتف المباشر" data-en="Direct Phone">الهاتف المباشر</h5>
+                                    <p class="text-primary font-bold text-base sm:text-lg">0552847411</p>
+                                    <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" 
                                        data-ar="متاح 24/7 للطوارئ" data-en="Available 24/7 for emergencies">متاح 24/7 للطوارئ</p>
                                 </div>
                             </div>
                             
-                            <div class="flex items-center p-6 glass-enhanced interactive-hover">
-                                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white ml-6 icon-button">
-                                    <i class="fas fa-envelope text-xl"></i>
+                            <div class="flex items-center p-4 sm:p-6 glass-enhanced interactive-hover">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center text-white ml-4 sm:ml-6 icon-button flex-shrink-0">
+                                    <i class="fas fa-envelope text-lg sm:text-xl"></i>
                                 </div>
-                                <div>
-                                    <h5 class="font-semibold text-xl mb-2" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</h5>
-                                    <p class="text-primary font-bold text-lg">nfose2007@gmail.com</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400" 
+                                <div class="min-w-0">
+                                    <h5 class="font-semibold text-lg sm:text-xl mb-1 sm:mb-2" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</h5>
+                                    <p class="text-primary font-bold text-base sm:text-lg break-all">nfose2007@gmail.com</p>
+                                    <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" 
                                        data-ar="رد خلال 24 ساعة" data-en="Response within 24 hours">رد خلال 24 ساعة</p>
                                 </div>
                             </div>
                             
-                            <div class="flex items-center p-6 glass-enhanced interactive-hover">
-                                <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center text-white ml-6 icon-button success">
-                                    <i class="fab fa-whatsapp text-xl"></i>
+                            <div class="flex items-center p-4 sm:p-6 glass-enhanced interactive-hover">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-success rounded-full flex items-center justify-center text-white ml-4 sm:ml-6 icon-button success flex-shrink-0">
+                                    <i class="fab fa-whatsapp text-lg sm:text-xl"></i>
                                 </div>
-                                <div>
-                                    <h5 class="font-semibold text-xl mb-2" data-ar="واتساب" data-en="WhatsApp">واتساب</h5>
-                                    <p class="text-primary font-bold text-lg">0552847411</p>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400" 
+                                <div class="min-w-0">
+                                    <h5 class="font-semibold text-lg sm:text-xl mb-1 sm:mb-2" data-ar="واتساب" data-en="WhatsApp">واتساب</h5>
+                                    <p class="text-primary font-bold text-base sm:text-lg">0552847411</p>
+                                    <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" 
                                        data-ar="للتواصل السريع" data-en="For quick communication">للتواصل السريع</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="glass-enhanced p-10 interactive-hover">
-                        <h4 class="text-3xl font-semibold mb-8 text-danger" 
+                    <div class="glass-enhanced p-6 sm:p-10 interactive-hover">
+                        <h4 class="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-danger" 
                             data-ar="إجراءات تقديم الشكاوى" data-en="Complaint Submission Procedures">إجراءات تقديم الشكاوى</h4>
-                        <div class="space-y-6">
-                            <div class="border-r-4 border-red-500 pr-6 glass-enhanced p-6 interactive-hover">
-                                <h5 class="font-semibold mb-3 text-xl" data-ar="1. التقديم المباشر" data-en="1. Direct Submission">1. التقديم المباشر</h5>
-                                <p class="text-lg text-gray-600 dark:text-gray-400" 
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="border-r-4 border-red-500 pr-4 sm:pr-6 glass-enhanced p-4 sm:p-6 interactive-hover">
+                                <h5 class="font-semibold mb-2 sm:mb-3 text-lg sm:text-xl" data-ar="1. التقديم المباشر" data-en="1. Direct Submission">1. التقديم المباشر</h5>
+                                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                    data-ar="زيارة مكتب السلامة والصحة المهنية في الطابق الأرضي - جناح الإدارة" 
                                    data-en="Visit the Safety and Occupational Health office on the ground floor - Administration wing">زيارة مكتب السلامة والصحة المهنية في الطابق الأرضي - جناح الإدارة</p>
                             </div>
                             
-                            <div class="border-r-4 border-orange-500 pr-6 glass-enhanced p-6 interactive-hover">
-                                <h5 class="font-semibold mb-3 text-xl" data-ar="2. التقديم الإلكتروني" data-en="2. Electronic Submission">2. التقديم الإلكتروني</h5>
-                                <p class="text-lg text-gray-600 dark:text-gray-400" 
+                            <div class="border-r-4 border-orange-500 pr-4 sm:pr-6 glass-enhanced p-4 sm:p-6 interactive-hover">
+                                <h5 class="font-semibold mb-2 sm:mb-3 text-lg sm:text-xl" data-ar="2. التقديم الإلكتروني" data-en="2. Electronic Submission">2. التقديم الإلكتروني</h5>
+                                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                    data-ar="إرسال الشكوى عبر البريد الإلكتروني مع التفاصيل الكاملة والمرفقات" 
                                    data-en="Send complaint via email with complete details and attachments">إرسال الشكوى عبر البريد الإلكتروني مع التفاصيل الكاملة والمرفقات</p>
                             </div>
                             
-                            <div class="border-r-4 border-yellow-500 pr-6 glass-enhanced p-6 interactive-hover">
-                                <h5 class="font-semibold mb-3 text-xl" data-ar="3. الشكاوى المجهولة" data-en="3. Anonymous Complaints">3. الشكاوى المجهولة</h5>
-                                <p class="text-lg text-gray-600 dark:text-gray-400" 
+                            <div class="border-r-4 border-yellow-500 pr-4 sm:pr-6 glass-enhanced p-4 sm:p-6 interactive-hover">
+                                <h5 class="font-semibold mb-2 sm:mb-3 text-lg sm:text-xl" data-ar="3. الشكاوى المجهولة" data-en="3. Anonymous Complaints">3. الشكاوى المجهولة</h5>
+                                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                    data-ar="صندوق الشكاوى المجهولة في مدخل المدرسة الرئيسي" 
                                    data-en="Anonymous complaint box at the main school entrance">صندوق الشكاوى المجهولة في مدخل المدرسة الرئيسي</p>
                             </div>
                             
-                            <div class="border-r-4 border-green-500 pr-6 glass-enhanced p-6 interactive-hover">
-                                <h5 class="font-semibold mb-3 text-xl" data-ar="4. المتابعة" data-en="4. Follow-up">4. المتابعة</h5>
-                                <p class="text-lg text-gray-600 dark:text-gray-400" 
+                            <div class="border-r-4 border-green-500 pr-4 sm:pr-6 glass-enhanced p-4 sm:p-6 interactive-hover">
+                                <h5 class="font-semibold mb-2 sm:mb-3 text-lg sm:text-xl" data-ar="4. المتابعة" data-en="4. Follow-up">4. المتابعة</h5>
+                                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400" 
                                    data-ar="متابعة الشكوى ورقم المرجع والرد خلال 48 ساعة كحد أقصى" 
                                    data-en="Follow-up on complaint with reference number and response within maximum 48 hours">متابعة الشكوى ورقم المرجع والرد خلال 48 ساعة كحد أقصى</p>
                             </div>
@@ -1121,74 +1353,66 @@
     </main>
 
     <!-- Footer -->
-    <footer class="header-gradient text-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-10 mb-12">
+    <footer class="header-gradient text-white py-12 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-8 sm:mb-12">
                 <div>
-                    <h4 class="text-3xl font-bold mb-6" 
+                    <h4 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6" 
                         data-ar="مدرسة بني ياس الدولية" 
                         data-en="Bani Yas International School">مدرسة بني ياس الدولية</h4>
-                    <p class="text-blue-100 mb-6 text-xl" 
+                    <p class="text-blue-100 mb-4 sm:mb-6 text-lg sm:text-xl" 
                        data-ar="تعليم متميز في بيئة آمنة" 
                        data-en="Excellence in education within a safe environment">تعليم متميز في بيئة آمنة</p>
-                    <div class="flex space-x-6 space-x-reverse">
-                        <a href="tel:0552847411" class="w-14 h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 interactive-hover icon-button">
-                            <i class="fas fa-phone text-2xl"></i>
+                    <div class="flex space-x-4 sm:space-x-6 space-x-reverse">
+                        <a href="tel:0552847411" class="w-12 h-12 sm:w-14 sm:h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 interactive-hover icon-button">
+                            <i class="fas fa-phone text-lg sm:text-2xl"></i>
                         </a>
-                        <a href="mailto:nfose2007@gmail.com" class="w-14 h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 interactive-hover icon-button">
-                            <i class="fas fa-envelope text-2xl"></i>
+                        <a href="mailto:nfose2007@gmail.com" class="w-12 h-12 sm:w-14 sm:h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 interactive-hover icon-button">
+                            <i class="fas fa-envelope text-lg sm:text-2xl"></i>
                         </a>
-                        <a href="https://wa.me/971552847411" class="w-14 h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 interactive-hover icon-button">
-                            <i class="fab fa-whatsapp text-2xl"></i>
+                        <a href="https://wa.me/971552847411" class="w-12 h-12 sm:w-14 sm:h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 interactive-hover icon-button">
+                            <i class="fab fa-whatsapp text-lg sm:text-2xl"></i>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-2xl font-semibold mb-6" 
+                    <h4 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6" 
                         data-ar="التواصل السريع" 
                         data-en="Quick Contact">التواصل السريع</h4>
-                    <div class="space-y-4 text-blue-100 text-lg">
+                    <div class="space-y-3 sm:space-y-4 text-blue-100 text-base sm:text-lg">
                         <div class="flex items-center">
-                            <i class="fas fa-phone ml-4 w-6 text-xl"></i>
+                            <i class="fas fa-phone ml-3 sm:ml-4 w-5 sm:w-6 text-lg sm:text-xl"></i>
                             <span>0552847411</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-envelope ml-4 w-6 text-xl"></i>
-                            <span>nfose2007@gmail.com</span>
+                            <i class="fas fa-envelope ml-3 sm:ml-4 w-5 sm:w-6 text-lg sm:text-xl"></i>
+                            <span class="break-all">nfose2007@gmail.com</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt ml-4 w-6 text-xl"></i>
+                            <i class="fas fa-map-marker-alt ml-3 sm:ml-4 w-5 sm:w-6 text-lg sm:text-xl"></i>
                             <span data-ar="أبوظبي - الإمارات العربية المتحدة" 
                                   data-en="Abu Dhabi - United Arab Emirates">أبوظبي - الإمارات العربية المتحدة</span>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-2xl font-semibold mb-6" 
+                    <h4 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6" 
                         data-ar="أرقام الطوارئ" 
                         data-en="Emergency Numbers">أرقام الطوارئ</h4>
-                    <div class="space-y-4 text-blue-100 text-lg">
-                        <div class="flex items-center">
-                            <i class="fas fa-fire ml-4 w-6 text-xl"></i>
-                            <span data-ar="الدفاع المدني: 997" data-en="Civil Defense: 997">الدفاع المدني: 997</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-ambulance ml-4 w-6 text-xl"></i>
-                            <span data-ar="الإسعاف: 998" data-en="Ambulance: 998">الإسعاف: 998</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone ml-4 w-6 text-xl"></i>
-                            <span data-ar="الشرطة: 999" data-en="Police: 999">الشرطة: 999</span>
-                        </div>
+                    <div class="emergency-number text-center">
+                        <i class="fas fa-exclamation-triangle text-2xl sm:text-3xl mb-2 sm:mb-3"></i>
+                        <div class="text-lg sm:text-xl font-bold mb-2" data-ar="رقم الطوارئ الموحد" data-en="Unified Emergency Number">رقم الطوارئ الموحد</div>
+                        <div class="text-3xl sm:text-4xl font-black mb-2 sm:mb-3">999</div>
+                        <div class="text-xs sm:text-sm" data-ar="للإسعاف - الدفاع المدني - الشرطة" data-en="For Ambulance - Civil Defense - Police">للإسعاف - الدفاع المدني - الشرطة</div>
                     </div>
                 </div>
             </div>
-            <hr class="border-blue-300 my-10">
+            <hr class="border-blue-300 my-8 sm:my-10">
             <div class="text-center">
-                <p class="text-blue-100 mb-3 text-xl" 
+                <p class="text-blue-100 mb-2 sm:mb-3 text-lg sm:text-xl" 
                    data-ar="جميع الحقوق محفوظة © 2025 - مدرسة بني ياس الدولية الخاصة" 
                    data-en="All rights reserved © 2025 - Bani Yas International Private School">جميع الحقوق محفوظة © 2025 - مدرسة بني ياس الدولية الخاصة</p>
-                <p class="text-blue-200 text-lg" 
+                <p class="text-blue-200 text-base sm:text-lg" 
                    data-ar="تم تصميم الموقع من قبل المهندس حسين نقد" 
                    data-en="Website designed by Engineer Hussein Naqd">تم تصميم الموقع من قبل المهندس حسين نقد</p>
             </div>
@@ -1196,13 +1420,13 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 left-8 w-16 h-16 bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-2xl opacity-0 transition-all duration-300 hover:scale-110 z-50 no-print icon-button">
-        <i class="fas fa-arrow-up text-xl"></i>
+    <button id="backToTop" class="fixed bottom-6 left-6 sm:bottom-8 sm:left-8 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-2xl opacity-0 transition-all duration-300 hover:scale-110 z-50 no-print icon-button">
+        <i class="fas fa-arrow-up text-lg sm:text-xl"></i>
     </button>
 
     <!-- Print Button -->
-    <button id="printBtn" class="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-r from-success to-accent text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 no-print icon-button success">
-        <i class="fas fa-print text-xl"></i>
+    <button id="printBtn" class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-success to-accent text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 no-print icon-button success">
+        <i class="fas fa-print text-lg sm:text-xl"></i>
     </button>
 
     <script>
@@ -1362,12 +1586,12 @@
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        const headerHeight = document.querySelector('header').offsetHeight + 
-                                           document.getElementById('mainNav').offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight - 20;
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const navHeight = window.innerWidth >= 768 ? document.getElementById('mainNav').offsetHeight : 0;
+                        const targetPosition = target.offsetTop - headerHeight - navHeight - 20;
                         
                         window.scrollTo({
-                            top: targetPosition,
+                            top: Math.max(0, targetPosition),
                             behavior: 'smooth'
                         });
                     }
